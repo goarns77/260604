@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "01": "nodemon 260604_ex01_express.js",
+    "02": "nodemon 260604_ex02_sdk.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
