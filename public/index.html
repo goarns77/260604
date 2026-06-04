@@ -38,12 +38,12 @@
         const formData = new FormData(event.target);
         console.log("formData", ...formData);
         const response = await axios.post("/chat", Object.fromEntries(formData));
-        
+
         const {result} = response.data;
         const p = document.createElement("p")
-        p.textContent = `
-        Ask : ${formData.get("ask")}<br>
-        Asw : ${result}`;
+        p.innerHTML = `
+        <strong>Ask</strong> : ${formData.get("ask")}<br>
+        <strong>Asw</strong> : ${result}`;
         chatContainer.append(p);
       });
     </script>
