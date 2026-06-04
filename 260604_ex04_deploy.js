@@ -17,49 +17,18 @@ app.use(
     express.static(path.join(__dirname,"public"))
 );
 
-app.post("/chat", async (req,res)=>{
-    //입력
-    const {
-        provider,
-        model,
-        ask,
-    } = req.body;
-    //로직
-    let result;
-    switch(true){
-        case provider === "Google":
-            console.log("Google Provider Requested!");
-            result = useGoogle(model, ask);
-            break;
-        case provider === "Groq":
-            console.log("Groq Provider Requested!");
-            result = useGroq(model, ask);
-            break;
-        default:
-            console.log("Unknown Provider (Wrong Request)")
-            res.status(404).json({msg : "Provider not exist"})
-            break;
-    }
-    //출력(JSON)
-    res.json({
-        provider,
-        model,
-        ask,
-    })
-})
-
 app.post("/chat", async (req, res) => {
   // 입력 (JSON)
   const { provider, model, ask } = req.body;
   // 로직 (AI Provider)
   let result;
   switch (true) {
-    case provider === "google":
-      console.log("google 제공자 요청");
+    case provider === "Google":
+      console.log("Google 제공자 요청");
       result = await useGoogle(model, ask);
       break;
-    case provider === "groq":
-      console.log("groq 제공자 요청");
+    case provider === "Groq":
+      console.log("Groq 제공자 요청");
       result = await useGroq(model, ask);
       break;
     default:
