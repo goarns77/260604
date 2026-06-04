@@ -9,7 +9,6 @@ const path = require("path");
 const app = express();
 const google = new GoogleGenAI({apiKey: process.env.GOOGLE_API_KEY});
 const groq = new GroqAI({apiKey: process.env.GROQ_API_KEY});
-const PORT = 3007;
 
 app.use(express.json());
 
