@@ -32,15 +32,18 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       const chatForm = document.querySelector("#chatForm");
-      const chatContainer = document.querySelector("#chatContainer")
+      const chatContainer = document.querySelector("#chatContainer");
       chatForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         console.log("formData", ...formData);
-        const response = await axios.post("/chat", Object.fromEntries(formData));
-
-        const {result} = response.data;
-        const p = document.createElement("p")
+        const response = await axios.post(
+          "/chat",
+          Object.fromEntries(formData),
+        );
+        // console.log("response", response.data);
+        const { result } = response.data;
+        const p = document.createElement("p");
         p.innerHTML = `
         <strong>Ask</strong> : ${formData.get("ask")}<br>
         <strong>Asw</strong> : ${result}`;
